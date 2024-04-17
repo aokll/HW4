@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="/bookStyle.css">
+</head>
+<body>
+<h1>Books</h1>
+<h2>View books</h2>
+
+<table>
+    <tr>
+        <th>BOOK NAME</th>
+        <th>BOOK PRICE</th>
+        <th>BOOK QUANTITY</th>
+    </tr>
+    <tr th:each="p: ${books}" >
+        <td th:text="${p.name}"></td>
+        <td th:text="${p.price}"></td>
+        <td th:text="${p.numberOfBooksAvailable}"></td>
+    </tr>
+</table>
+
+<h2>Add a book</h2>
+<form action="/books" method="post">
+    <div class="field">
+        <label></label>
+        Name: <input type="text" name="name"><br />
+    </div>
+    <div class="field">
+        <label></label>
+        Price: <input type="number" step="any" name="price"><br />
+    </div>
+    <div class="field">
+        <label></label>
+        Quantity: <input type="number" step="any" name="numberOfBooksAvailable"><br />
+    </div>
+    <div class="field">
+        <button type="submit">Add book</button>
+    </div>
+</form>
+</body>
+</html>
